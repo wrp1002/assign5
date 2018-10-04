@@ -1,0 +1,41 @@
+<!-- 	Wesley Paglia 	-->
+<!-- 	  Assign2 		-->
+<!-- 	  9/19/18 		-->
+
+<html>
+	<head>
+		<script>
+			function Round(num) {
+				return Math.floor(num * 10 + .5) / 10;
+			}
+		
+			function CalculateTime(speed) {
+				if (isNaN(speed) || speed == "") {
+					alert("Must enter a number");
+					return;
+				}
+				
+				let distance = 		8 + 1/3;
+				let legalSpeed = 	55.0;
+				
+				let legalTime = 	(distance / legalSpeed);
+				let time = 			(distance / speed);
+				
+				let timeSavedSeconds = Round((legalTime - time) * 3600);
+				
+				document.getElementById("output").innerHTML = timeSavedSeconds + " seconds are saved going " + Round(speed - legalSpeed) + " mph over the speed limit";
+			}
+		</script>
+	</head>
+
+	<body>
+		<h1>Speeding Time Saving Calculator</h1>
+		
+		<p>Slippery Rock is 8 1/3 miles away<br> The speed limit is 55 mph<br> Enter speed to see how much time is saved going over the speed limit!</p>
+		
+		<input id="speedInput" type="text" placeholder="ex. 65"><button onclick="CalculateTime(document.getElementById('speedInput').value);">Calculate</button>
+		
+		<p id="output"></p>
+		
+	</body>
+</html>
